@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏠 RentFlow - Smart Tenant-Landlord Portal
 
-## Getting Started
+RentFlow adalah platform Micro-SaaS yang dirancang untuk menyederhanakan komunikasi antara pemilik properti (Landlord) dan penyewa (Tenant). Fokus pada transparansi pelaporan kerusakan dan manajemen pembayaran.
 
-First, run the development server:
+## 🚀 Fitur Utama
+- **Role-Based Access:** Dashboard berbeda untuk Pemilik dan Penyewa.
+- **Ticketing System:** Penyewa dapat melaporkan kerusakan dengan foto; Pemilik dapat memperbarui status secara real-time.
+- **Payment Tracking:** Unggah bukti transfer dan verifikasi pembayaran instan.
+- **Secure Auth:** Login aman menggunakan Supabase Auth.
+- **Real-time Updates:** Notifikasi status perbaikan tanpa refresh halaman.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Tech Stack
+- **Frontend:** Next.js 15, Tailwind CSS, shadcn/ui.
+- **Backend:** Supabase (PostgreSQL, Edge Functions).
+- **Storage:** Supabase Storage (untuk foto bukti bayar & kerusakan).
+- **State Management:** TanStack Query.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📋 Skema Database (ERD)
+- `profiles`: id, email, full_name, role (landlord/tenant)
+- `properties`: id, name, address, owner_id
+- `tickets`: id, title, description, image_url, status, tenant_id
+- `payments`: id, amount, proof_url, status, tenant_id
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Cara Menjalankan Lokal
+1. Clone repositori ini.
+2. Install dependensi: `npm install`.
+3. Buat file `.env.local` dan masukkan kredensial Supabase Anda.
+4. Jalankan aplikasi: `npm run dev`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📈 Roadmap Pengembangan
+- [ ] Integrasi AI untuk deteksi otomatis urgensi kerusakan.
+- [ ] Export laporan keuangan bulanan ke PDF.
+- [ ] Integrasi WhatsApp Gateway untuk notifikasi otomatis.
